@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-callerid" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>Cordova CallerID</name>
+
+    <js-module name="CordovaCallerID" src="www/CordovaCallerID.js">
+        <clobbers target="cordova.plugins.CordovaCallerID" />
+    </js-module>
+
+    <!-- <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="CordovaCall">
+                <param name="android-package" value="com.dmarc.cordovacall.CordovaCall" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.BIND_TELECOM_CONNECTION_SERVICE" />
+            <uses-permission android:name="android.permission.CALL_PHONE" />
+            <uses-permission android:name="android.permission.MANAGE_OWN_CALLS" />
+        </config-file>
+
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+            <service android:name="com.dmarc.cordovacall.MyConnectionService" android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE">
+                <intent-filter>
+                    <action android:name="android.telecom.ConnectionService" />
+                </intent-filter>
+            </service>
+        </config-file>
+
+        <source-file src="src/android/CordovaCall.java" target-dir="src/com/dmarc/cordovacall" />
+        <source-file src="src/android/MyConnectionService.java" target-dir="src/com/dmarc/cordovacall" />
+    </platform> -->
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CordovaCallerID">
+                <param name="ios-package" value="CordovaCallerID" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="UIBackgroundModes">
+            <array>
+                <string>fetch</string>
+                <string>remote-notification</string>
+                <string>voip</string>
+            </array>
+        </config-file>
+
+        <header-file src="src/ios/CordovaCallerID.h" />
+
+        <source-file src="src/ios/CordovaCallerID.m" />
+
+        <framework src="PushKit.framework" />
+        <framework src="CallKit.framework" />
+    </platform>
+</plugin>
