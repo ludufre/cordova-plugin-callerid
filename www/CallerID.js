@@ -42,8 +42,12 @@ var getPromisedCordovaExec = function (command, success, fail) {
   return toReturn;
 };
 
-var echo = function (success, fail) {
+var CallerID = function (success, fail) {
   return getPromisedCordovaExec('echo', success, fail);
 };
 
-module.exports = getAppVersion;
+CallerID.echo = function (success, fail) {
+  return getPromisedCordovaExec('echo', success, fail);
+};
+
+module.exports = CallerID;

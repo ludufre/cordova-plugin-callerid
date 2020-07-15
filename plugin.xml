@@ -2,8 +2,8 @@
 <plugin id="cordova-plugin-callerid" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>Cordova CallerID</name>
 
-    <js-module name="CordovaCallerID" src="www/CordovaCallerID.js">
-        <clobbers target="cordova.plugins.CordovaCallerID" />
+    <js-module name="CallerID" src="www/CallerID.js">
+        <clobbers target="cordova.CallerID" />
     </js-module>
 
     <!-- <platform name="android">
@@ -34,25 +34,15 @@
 
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="CordovaCallerID">
-                <param name="ios-package" value="CordovaCallerID" />
-                <param name="onload" value="true" />
+            <feature name="CallerID">
+                <param name="ios-package" value="CallerID" />
             </feature>
         </config-file>
 
-        <config-file target="*-Info.plist" parent="UIBackgroundModes">
-            <array>
-                <string>fetch</string>
-                <string>remote-notification</string>
-                <string>voip</string>
-            </array>
-        </config-file>
+        <header-file src="src/ios/CallerID.h" />
 
-        <header-file src="src/ios/CordovaCallerID.h" />
+        <source-file src="src/ios/CallerID.m" />
 
-        <source-file src="src/ios/CordovaCallerID.m" />
-
-        <framework src="PushKit.framework" />
         <framework src="CallKit.framework" />
     </platform>
 </plugin>

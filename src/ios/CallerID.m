@@ -1,4 +1,4 @@
-#import "CordovaCallerID.h"
+#import "CallerID.h"
 #import <Cordova/CDVPluginResult.h>
 
 @implementation CallerID
@@ -14,7 +14,7 @@
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
     }
 
-    [self.commandDelegate sendPluginResult:pluginResult callbackId:callbackId];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
 @end
